@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    
+
+</head>
+<body>
+    <section class="todo-container">
+        <h2>To Do List</h2>
+        <section class="todo">
+            <form action="/" method="post" class="todo-header">
+                <input type="text" name="title" value="title">
+                <textarea name="content" cols="45" rows="6">content</textarea>
+                <button type="submit"><span class="fa-solid fa-plus">Add text</span></button>
+            </form>
+        </section>
+        <ul class="todo-list">
+            <% todoTasks.forEach(task => { %>
+                <li class="todo-list-item">
+                    <div class="todo-list-item-title">
+                        <%= task.title %> 
+                    </div>    
+                    <div class="todo-list-item-content">
+                        <%= task.content %> 
+                    </div>    
+                    <a href="/edit/<%=task._id %>" class="edit"><span class="fas fa-edit"></span></a>
+                    <a href="/remove/<%=task._id %>" class="remove"><span class="fas fa-trash-can"></span></a>
+                </li>
+            <% }) %>
+       </ul>
+    </section>
+   
+</body>
+</html>
